@@ -1,0 +1,27 @@
+/* YouTube用のマテリアルデザインスタイル */
+:root {
+  --material-primary: #ff0000;
+  --material-background: #ffffff;
+  --material-surface: #f8f8f8;
+  --material-on-surface: #030303;
+}
+
+/* 基本的なマテリアルデザインスタイル */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--material-background);
+  color: var(--material-on-surface);
+}
+
+/* ナビゲーションバーのスタイル */
+#masthead-container {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--material-surface);
+}
+
+/* 動画プレーヤーのスタイル */
+#player {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
