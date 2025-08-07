@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Material Site Design",
+  "version": "1.0",
+  "description": "ウェブサイトにマテリアルデザインスタイルを適用する拡張機能",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://open.spotify.com/*",
+    "https://*.kakaku.com/*",
+    "https://github.com/*",
+    "https://*.youtube.com/*",
+    "https://*.google.com/*",
+    "https://*.bing.com/*",
+    "https://*.yahoo.co.jp/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_popup": "menu.html"
+  },
+  "options_page": "setting.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://open.spotify.com/*",
+        "https://*.kakaku.com/*",
+        "https://github.com/*",
+        "https://*.youtube.com/*",
+        "https://*.google.com/*",
+        "https://*.bing.com/*",
+        "https://*.yahoo.co.jp/*"
+      ],
+      "css": ["styles/material.css"],
+      "js": ["script.js"]
+    }
+  ]
+}
