@@ -1,0 +1,106 @@
+/* 基本のマテリアルデザインスタイル */
+:root {
+  --md-primary: #1a73e8;
+  --md-primary-dark: #1557b0;
+  --md-surface: #ffffff;
+  --md-surface-dark: #202124;
+  --md-text-primary: #202124;
+  --md-text-primary-dark: #e8eaed;
+  --md-text-secondary: #5f6368;
+  --md-text-secondary-dark: #9aa0a6;
+  --md-border: #dadce0;
+  --md-border-dark: #3c4043;
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,0.12);
+  --md-elevation-2: 0 2px 4px rgba(0,0,0,0.12);
+  --md-elevation-3: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+/* ダークモード変数 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-surface: var(--md-surface-dark);
+    --md-text-primary: var(--md-text-primary-dark);
+    --md-text-secondary: var(--md-text-secondary-dark);
+    --md-border: var(--md-border-dark);
+  }
+}
+
+/* 共通スタイル */
+button {
+  border-radius: 4px;
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+button.primary {
+  background-color: var(--md-primary);
+  color: white;
+}
+
+button.primary:hover {
+  background-color: var(--md-primary-dark);
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"] {
+  border-radius: 4px;
+  border: 1px solid var(--md-border);
+  padding: 8px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--md-primary);
+  box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+}
+
+/* カード要素 */
+.md-card {
+  background-color: var(--md-surface);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--md-elevation-1);
+  transition: box-shadow 0.2s;
+}
+
+.md-card:hover {
+  box-shadow: var(--md-elevation-2);
+}
+
+/* リップルエフェクト */
+.md-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.md-ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0,0,0,.1) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+}
+
+.md-ripple:active::after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+}
