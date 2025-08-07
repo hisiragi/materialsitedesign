@@ -32,18 +32,37 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://chatgpt.com/*",
-        "https://open.spotify.com/*",
-        "https://*.kakaku.com/*",
-        "https://github.com/*",
-        "https://*.youtube.com/*",
-        "https://*.google.com/*",
-        "https://*.bing.com/*",
-        "https://*.yahoo.co.jp/*"
-      ],
-      "css": ["styles/material.css"],
-      "js": ["script.js"]
+      "matches": ["https://*.youtube.com/*"],
+      "css": ["styles/youtube.css"],
+      "js": ["sites/youtube.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://*.yahoo.co.jp/*"],
+      "css": ["styles/yahoo.css"],
+      "js": ["sites/yahoo.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://*.google.com/*"],
+      "css": ["styles/material.css", "styles/google.css"],
+      "js": ["sites/google.js"]
+    },
+    {
+      "matches": ["https://*.bing.com/*"],
+      "css": ["styles/material.css", "styles/bing.css"],
+      "js": ["sites/bing.js"]
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "css": ["styles/github.css"],
+      "js": ["sites/github.js", "lib/translator.js"]
+    },
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "css": ["styles/spotify.css"],
+      "js": ["sites/spotify.js"],
+      "run_at": "document_start"
     }
   ]
 }
